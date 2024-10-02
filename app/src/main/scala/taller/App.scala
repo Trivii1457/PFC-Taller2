@@ -10,7 +10,16 @@ object App {
     //Ejemplo
     val conJuntosDifusos = new ConJuntosDifusos()
     //Como se formateaba esta joda?? 😥😥😥
-    println(conJuntosDifusos.Union(conJuntosDifusos.grande(1, 5), conJuntosDifusos.muchoMayorQue(3, 7)))
+    
+    // Llamar a las funciones con los argumentos apropiados
+    val unionResult = conJuntosDifusos.Union(conJuntosDifusos.grande(1, 5), conJuntosDifusos.muchoMayorQue(3, 7))
+    println(unionResult(4)) // Llamar a la función resultante con un argumento
+
+    //La suma de estos dos prints posee la union anterior
+    val grandeResult = conJuntosDifusos.grande(1, 5)
+    println(grandeResult(3))
+    val muchoMayorQueResult = conJuntosDifusos.muchoMayorQue(3, 7)
+    println(muchoMayorQueResult(4))
 
   }
 
