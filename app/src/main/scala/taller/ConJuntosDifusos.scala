@@ -51,7 +51,7 @@ class ConJuntosDifusos {
                 
             }
         }catch{
-            case e: Exception => -1.0 // Valor en caso de que falle
+            case e: Exception =>  throw new RuntimeException("error", e) // Valor en caso de que falle
         }
 
         }
@@ -67,7 +67,7 @@ class ConJuntosDifusos {
                 
             }
         }catch{ 
-            case e: Exception => -1.0 //Valor en caso de error
+             case e: Exception =>  throw new RuntimeException("error", e) //Valor en caso de error
         }
 
         }
@@ -79,12 +79,12 @@ class ConJuntosDifusos {
         def AuxInterseccion(x: Int): Double={
             try{
             cd1 match {
-                //Si el valor de cd1 es menor que el de cd2, se toma el valor de cd1, de lo contrario se toma el valor de cd2
-                case cd1 => if (cd1(x) < cd2(x)) cd1(x) else cd2(x)
+                //La interseccion toma el minimo grado de pertenencia entre los dos conjuntos difusos
+                case _ => math.min(cd1(x), cd2(x))
                 
             }
         }catch{
-            case e: Exception => -1.0 //Valor en caso de error
+            case e: Exception =>  throw new RuntimeException("error", e)//Valor en caso de error
         }
 
         }
