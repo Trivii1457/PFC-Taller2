@@ -6,6 +6,11 @@ class ConJuntosDifusos {
     //Definicion del Type
     type ConjuntoDifuso = Int => Double
 
+    //Funcion Aux para redondear decimales
+    def redondear(valor: Double): Double = {
+    BigDecimal(valor).setScale(3, BigDecimal.RoundingMode.HALF_UP).toDouble
+    }
+
 
     //Punto 1.1 (Generacion de Funciones propuestas)
     //------------------------------------------------------------------------------------------------
@@ -34,7 +39,7 @@ class ConJuntosDifusos {
         def Auxgrande(x: Int): Double={
             //Este if es para verificar si el elemento pertenece al conjunto difuso
             if (x <= d) 0.0
-            else if (x > d && x <= e) (x-d).toDouble/(e-d).toDouble
+            else if (x > d && x <= e) redondear((x-d).toDouble/(e-d).toDouble)
             else 1.0
         
         }
@@ -80,7 +85,7 @@ class ConJuntosDifusos {
             try{
             cd1 match {
                 //La interseccion toma el minimo grado de pertenencia entre los dos conjuntos difusos
-                case _ => math.min(cd1(x), cd2(x))
+                case _ => redondear(math.min(cd1(x), cd2(x)))
                 
             }
         }catch{
