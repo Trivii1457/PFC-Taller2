@@ -6,6 +6,10 @@ class ConJuntosDifusos {
     //Definicion del Type
     type ConjuntoDifuso = Int => Double
 
+    object conjDifuso {
+        def apply(f: Int => Double): ConjuntoDifuso = f
+    }
+
     //Funcion Aux para redondear decimales
     def redondear(valor: Double): Double = {
     BigDecimal(valor).setScale(3, BigDecimal.RoundingMode.HALF_UP).toDouble
