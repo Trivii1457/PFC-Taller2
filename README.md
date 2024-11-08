@@ -1,4 +1,4 @@
-Taller Reconocimientos de patrones
+Taller Funciones de Alto Orden
 
 
 -programacion Funcional
